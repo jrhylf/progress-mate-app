@@ -3,7 +3,7 @@ import './App.css';
 
 // CSS
 import './css/animated_bg.css';
-import { H1, H2, P, Button } from './components/Components';
+import { Button } from './components/Components';
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
         </div >
 
         <div className="header-content">
-          <H1 text={'Boost Your Productivity'} />
-          <P className={'header-p'} text={'Track tasks, set goals, and get insights—all in one place.'} />
+          <h1>Boost Your Productivity</h1>
+          <p>Track tasks, set goals, and get insights—all in one place.</p>
           <Button 
             text={'Get Started'}
             className={'getStartedBtn'}
@@ -37,23 +37,85 @@ function App() {
 
       <main>
         <article className='card'>
-          <H2 text={'Task Management'} />
-          <P className={'card-p'} text={'Task Management'} />
+          {/* Task Icon */}
+          <lord-icon
+            src="https://cdn.lordicon.com/edcgvlnw.json"
+            trigger="loop"
+            delay="3000"
+            colors="primary:#333333,secondary:#ff9800"
+            style={{ width: '100px', height: '100px' }}
+          >
+          </lord-icon>
+          <h2>Task Management</h2>
+          <p>Easily create, prioritize, and manage your tasks with our intuitive interface. Stay organized and ensure nothing falls through the cracks as you track your progress in real-time.</p>
         </article>
 
         <article className='card'>
-          <H2 text={'Goal Tracking'} />
-          <P className={'card-p'} text={'Goal Tracking'} />
+          {/* Goal Icon */}
+          <lord-icon
+            src="https://cdn.lordicon.com/weqkkuwt.json"
+            trigger="loop"
+            delay="3000"
+            colors="primary:#333333,secondary:#4CAF50"
+            style={{ width: '100px', height: '100px' }}
+          >
+          </lord-icon>
+          <h2>Goal Tracking</h2>
+          <p>Set achievable goals and monitor your progress with actionable insights. Break down your objectives into manageable milestones to stay motivated and on track.</p>
         </article>
 
         <article className='card'>
-          <H2 text={'Calendar Integration'} />
-          <P className={'card-p'} text={'Calendar Integration'} />
+          {/* Calendar Icon */}
+          <lord-icon
+            src="https://cdn.lordicon.com/zqyyfteh.json"
+            trigger="loop"
+            delay="3000"
+            colors="primary:#333333,secondary:#ff9800"
+            style={{ width: '100px', height: '100px' }}
+          >
+          </lord-icon>
+          <h2>Calendar Integration</h2>
+          <p>Sync your tasks and deadlines with our integrated calendar to visualize your schedule at a glance. Stay ahead of important dates and plan your time effectively with seamless integration.</p>
         </article>
       </main>
 
-      <footer>
+      {/* // TODO: Probably add 1 or 2 more sections */}
 
+      <section className="benefits">
+        <h2>Why Choose ProgressMate?</h2>
+        <div className="benefit-grid">
+          <div className="benefit-item">
+              <h3>Simple and Intuitive</h3>
+              <p>Designed for easy task and goal management.</p>
+          </div>
+          <div className="benefit-item">
+              <h3>Data-Driven Insights</h3>
+              <p>Analyze your productivity trends and make better decisions.</p>
+          </div>
+          <div className="benefit-item">
+              <h3>Seamless Syncing</h3>
+              <p>Keep everything organized across all your devices.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="cta-content">
+          <h2>Start Boosting Your Productivity Today!</h2>
+          <p>Unlock your full potential and enhance your productivity with ProgressMate, the ultimate tool designed to keep you organized and help you achieve your goals effectively.</p>
+          <a href="#" className="cta-button">Join Now for Free</a>
+        </div>
+      </section>
+
+      <section class="quote-section">
+          <blockquote>
+              <p>“Setting goals is the first step in turning the invisible into the visible.”</p>
+              <span>— Tony Robbins</span>
+          </blockquote>
+      </section>
+
+      <footer>
+        <span>Copyrights &copy; 2024 ProgressMate</span>
       </footer>
     </div>
   );

@@ -1,32 +1,5 @@
 import React from 'react';
 
-// H1 Component
-export const H1 = ({ text, className }) => {
-    return (
-        <h1 className={className}>
-            {text}
-        </h1>
-    );
-};
-
-// H2 Component
-export const H2 = ({ text, className }) => {
-    return (
-        <h2 className={className}>
-            {text}
-        </h2>
-    );
-};
-
-// P Component
-export const P = ({ text, className }) => {
-    return (
-        <p className={className}>
-            {text}
-        </p>
-    );
-};
-
 // Label Component
 export const Label = ({ text }) => {
     return (
