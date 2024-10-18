@@ -1,0 +1,17 @@
+#nav.hide {
+    transition: max-height 0.5s ease-out;
+}
+
+#nav.show {
+    transition: max-height 0.5s ease;
+}
+
+#contents.hide-elements {
+    /* opacity: 0; */
+    transition: opacity 0.5s ease;
+}
+
+#contents.show-elements {
+    /* opacity: 1; */
+    transition: opacity 0.5s ease;
+}

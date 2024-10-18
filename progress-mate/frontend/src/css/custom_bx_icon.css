@@ -1,10 +1,10 @@
-.nav > box-icon {
+.nav-header > box-icon {
     align-self: flex-end;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.nav > box-icon:active {
+.nav-header > box-icon:active {
     transform: scale(0.8, 0.8);
 }
 

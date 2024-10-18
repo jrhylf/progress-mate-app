@@ -13,10 +13,17 @@ import 'boxicons';
 // CSS
 import '../css/Dashboard.css';
 import '../css/custom_bx_icon.css';
+import '../css/navbar_animation.css';
+
+//JS
+import "../js/navbar_animation";
 
 function Dashboard() {
     // TODO: Get the username from Login Session.
     const [username, setUsername] = useState("John");
+
+    // TODO: Get currentPage from Page Router
+    const [currentPage, setCurrentPage] = useState("Dashboard");
 
     const navigate = useNavigate();
 
@@ -24,6 +31,7 @@ function Dashboard() {
         navigate("/dashboard");
     };
 
+    // TODO: Page Router
     // const [currentPage, setCurrentPage] = useState('dashboardPage');
 
     // const renderPage = () => {
@@ -54,9 +62,12 @@ function Dashboard() {
             </header>
 
             <main className="user-main">
-                <nav className="nav">
-                    <box-icon name='menu' size='md' border='square'></box-icon>
-                    <ul className="contents">
+                <nav className="nav" id="nav">
+                    <header className="nav-header">
+                        <span>{currentPage}</span>
+                        <box-icon id="menuIcon" name='menu' size='md' border='square'></box-icon>
+                    </header>
+                    <ul className="contents" id="contents">
                         <li className="navItem" onClick={goToDashboard}><box-icon name='bar-chart-square' size='sm' ></box-icon>Dashboard</li>
                         <li className="navItem"><box-icon name='task' size='sm' ></box-icon>Tasks</li>
                         <li className="navItem"><box-icon name='target-lock' size='sm' ></box-icon>Goals</li>
@@ -66,6 +77,7 @@ function Dashboard() {
 
                 <article className="user-article">
                     {/* // TODO: This will contain Router Pages. */}
+                    {currentPage}
                 </article>
             </main>
 
