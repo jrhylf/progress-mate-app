@@ -1,0 +1,14 @@
+.nav > box-icon {
+    align-self: flex-end;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nav > box-icon:active {
+    transform: scale(0.8, 0.8);
+}
+
+.navItem box-icon {
+    margin-right: 1rem;
+}
+

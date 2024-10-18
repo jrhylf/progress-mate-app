@@ -49,7 +49,7 @@ button {
   color: var(--text-color2);
 }
 
-h1 {
+.heading {
   font-size: 3rem;
   margin: 1rem 0;
 }

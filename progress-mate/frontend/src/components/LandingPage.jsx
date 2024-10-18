@@ -33,11 +33,13 @@ function LandingPage() {
                 </div >
 
                 <div className="header-content">
-                <h1>Boost Your Productivity</h1>
+                <h1 className="heading">Boost Your Productivity</h1>
                 <p>Track tasks, set goals, and get insights—all in one place.</p>
                 <Button 
                     text={'Get Started'}
                     className={'getStartedBtn'}
+                    // TODO: Show Login Modal Form instead of goToDashboard
+                    onClick={goToDashboard}
                 />
                 </div>
             </header>
