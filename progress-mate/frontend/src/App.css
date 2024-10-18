@@ -147,13 +147,12 @@ main {
   color: var(--text-color3);
 }
 
-/* Start Using */
+/* Start Boosting */
 .cta-section {
   background-color: var(--primary-accent); /* Soft Green */
   color: white;
   text-align: center;
   padding: 3rem 2rem;
-  margin: 2rem 0;
 }
 
 .cta-content h2 {
@@ -199,11 +198,21 @@ blockquote span {
   color: var(--text-color3);
 }
 
-
 /* Footer */
 footer {
   height: auto;
   width: 100%;
   padding: 1rem;
   color: var(--text-color1);
+}
+
+/* For Desktop 1024px above */
+@media only screen and (min-width: 1024px) {
+  main {
+    min-height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    place-items: center;
+  }
 }

@@ -107,7 +107,7 @@ function App() {
         </div>
       </section>
 
-      <section class="quote-section">
+      <section className="quote-section">
           <blockquote>
               <p>“Setting goals is the first step in turning the invisible into the visible.”</p>
               <span>— Tony Robbins</span>
