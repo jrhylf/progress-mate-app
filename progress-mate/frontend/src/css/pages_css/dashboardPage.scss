@@ -1,0 +1,40 @@
+// Variables
+$background-light: #ffffff;
+$background-light2: #f0f0f0;
+$primary-color: #4CAF50;
+
+$text-dark: #333333;
+$text-light: #fafafa;
+$text-medium: #666666;
+
+$highlight: #FF9800;
+$border-color: #E0E0E0;
+
+// ========================= //
+
+.dashboard {
+    height: auto;
+    width: 100%;
+
+    main {
+        @mixin section-style {
+            height: auto;
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid $border-color;
+            background-color: $background-light2;
+        }
+        
+        .taskSection {
+            @include section-style;
+        }
+        
+        .goalSection {
+            @include section-style;
+        }
+        
+        .calendarSection {
+            @include section-style;
+        }    
+    }    
+}

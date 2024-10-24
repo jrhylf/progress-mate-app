@@ -19,6 +19,7 @@
 
 .user-main {
     height: 100vh;
+    width: 100%;
 }
 
 .nav {
@@ -60,5 +61,46 @@
 
 .navItem:hover {
     background-color: var(--border-color);
+}
+
+.user-article {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color1); /* Assuming you want to apply a specific text color */
+}
+
+.breadcrumb > box-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 8px; /* Add space between the icon and text */
+    vertical-align: middle;
+}
+
+.slash {
+    margin: 0 12px; /* Space around the slash */
+}
+
+@media screen and (min-width: 1400px){
+    .user-main {
+        display: flex;
+    }
+
+    .nav {
+        width: 100%;
+        max-width: 18%;
+        transition: max-width 0.5s ease-out;
+    }
+
+    .nav-header {
+        margin-bottom: 1rem;
+    }
 }
 

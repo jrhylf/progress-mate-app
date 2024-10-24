@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // Packages / Libraries
 import 'boxicons';
 
 // Pages
-// import { Dashboard } from "./pages/dashboardPage";
-// import { TasksPage } from "./pages/tasksPage";
-// import { GoalsPage } from "./pages/goalsPage";
-// import { CalendarPage } from "./pages/calendarPage";
+import DashboardPage from "./pages/dashboardPage";
+import TasksPage from "./pages/tasksPage";
+import GoalsPage from "./pages/goalsPage";
+import CalendarPage from "./pages/calendarPage";
 
 // CSS
 import '../css/Dashboard.css';
@@ -16,44 +16,35 @@ import '../css/custom_bx_icon.css';
 import '../css/useNavToggle.css';
 
 //JS
-// import "../js/navbar_animation";
 import useNavToggle from "../js/useNavToggle";
 
 function Dashboard() {
     const { isOpen, toggleNav } = useNavToggle();
 
     // TODO: Get the username from Login Session.
-    const [username, setUsername] = useState("John");
+    const [username, setUsername] = useState('John');
 
-    // TODO: Get currentPage from Page Router
-    const [currentPage, setCurrentPage] = useState("Dashboard");
+    // TODO: Apply login session for this.
+    // const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const goToDashboard = () => {
-        navigate("/dashboard");
+    const [currentPage, setCurrentPage] = useState("dashboardPage");
+    const renderPage = () => {
+        switch (currentPage) {
+        case 'dashboardPage':
+            return <DashboardPage />
+        case 'tasksPage':
+            return <TasksPage />;
+        case 'goalsPage':
+            return <GoalsPage />;
+        case 'calendarPage':
+            return <CalendarPage />;
+        default:
+            return <DashboardPage />;
+        }
     };
 
-    // TODO: Page Router
-    // const [currentPage, setCurrentPage] = useState('dashboardPage');
-
-    // const renderPage = () => {
-    //     switch (currentPage) {
-    //     case 'dashboardPage':
-    //         return <DashboardPage />
-    //     case 'tasksPage':
-    //         return <TasksPage />;
-    //     case 'goalsPage':
-    //         return <GoalsPage />;
-    //     case 'calendarPage':
-    //         return <CalendarPage />;
-    //     default:
-    //         return <DashboardPage />;
-    //     }
-    // };
-
     return(
-        <div className="dashboard">
+        <div>
             <header className="user-header">
                 <span className="greeting">Hi {username}!</span>
 
@@ -77,20 +68,39 @@ function Dashboard() {
                         </button>
                     </header>
                     
-                    {/* Wrap the ul with a div for sliding effect */}
-                    <div className={`nav-container ${isOpen ? 'open' : ''}`}>
+                    <div id="nav-container" className={`nav-container ${isOpen ? 'open' : 'close'}`}>
                         <ul className="nav-links">
-                            <li className="navItem" onClick={goToDashboard}><box-icon name='bar-chart-square' size='sm'></box-icon>Dashboard</li>
-                            <li className="navItem"><box-icon name='task' size='sm'></box-icon>Tasks</li>
-                            <li className="navItem"><box-icon name='target-lock' size='sm'></box-icon>Goals</li>
-                            <li className="navItem"><box-icon name='calendar' size='sm'></box-icon>Calendar</li>
+                            <li className={currentPage === 'dashboardPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('dashboardPage')}>
+                                <box-icon name='bar-chart-square' size='sm'></box-icon>
+                                <span className="nav-item-name">Dashboard</span>
+                            </li>
+                            <li className={currentPage === 'tasksPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('tasksPage')}>
+                                <box-icon name='task' size='sm'></box-icon>
+                                <span className="nav-item-name">Tasks</span>
+                            </li>
+                            <li className={currentPage === 'goalsPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('goalsPage')}>
+                                <box-icon name='target-lock' size='sm'></box-icon>
+                                <span className="nav-item-name">Goals</span>
+                            </li>
+                            <li className={currentPage === 'calendarPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('calendarPage')}>
+                                <box-icon name='calendar' size='sm'></box-icon>
+                                <span className="nav-item-name">Calendar</span>
+                            </li>
                         </ul>
                     </div>
                 </nav>
 
                 <article className="user-article">
-                    {/* // TODO: This will contain Router Pages. */}
-                    {currentPage}
+                    {/* This should show the page path. */}
+                    {/* // TODO: breadcrumb */}
+                    <span className="breadcrumb">
+                        <box-icon name="home-circle" type="solid"></box-icon> 
+                        <span className="slash">/</span> 
+                        <span>Dashboard</span>
+                    </span>
+
+                    {/* This contain Router Pages. */}
+                    {renderPage()}
                 </article>
             </main>
 
