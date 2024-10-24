@@ -13,12 +13,15 @@ import 'boxicons';
 // CSS
 import '../css/Dashboard.css';
 import '../css/custom_bx_icon.css';
-import '../css/navbar_animation.css';
+import '../css/useNavToggle.css';
 
 //JS
-import "../js/navbar_animation";
+// import "../js/navbar_animation";
+import useNavToggle from "../js/useNavToggle";
 
 function Dashboard() {
+    const { isOpen, toggleNav } = useNavToggle();
+
     // TODO: Get the username from Login Session.
     const [username, setUsername] = useState("John");
 
@@ -53,6 +56,8 @@ function Dashboard() {
         <div className="dashboard">
             <header className="user-header">
                 <span className="greeting">Hi {username}!</span>
+
+                {/* Waving Hand */}
                 <lord-icon
                     src="https://cdn.lordicon.com/hkbcsvln.json"
                     trigger="loop"
@@ -65,14 +70,22 @@ function Dashboard() {
                 <nav className="nav" id="nav">
                     <header className="nav-header">
                         <span>{currentPage}</span>
-                        <box-icon id="menuIcon" name='menu' size='md' border='square'></box-icon>
+
+                        {/* Menu Icon */}
+                        <button className="nav_btn" onClick={toggleNav} aria-label="Toggle navigation">
+                            <box-icon id="menuIcon" name='menu' size='md' border='square'></box-icon>
+                        </button>
                     </header>
-                    <ul className="contents" id="contents">
-                        <li className="navItem" onClick={goToDashboard}><box-icon name='bar-chart-square' size='sm' ></box-icon>Dashboard</li>
-                        <li className="navItem"><box-icon name='task' size='sm' ></box-icon>Tasks</li>
-                        <li className="navItem"><box-icon name='target-lock' size='sm' ></box-icon>Goals</li>
-                        <li className="navItem"><box-icon name='calendar' size='sm' ></box-icon>Calendar</li>
-                    </ul>
+                    
+                    {/* Wrap the ul with a div for sliding effect */}
+                    <div className={`nav-container ${isOpen ? 'open' : ''}`}>
+                        <ul className="nav-links">
+                            <li className="navItem" onClick={goToDashboard}><box-icon name='bar-chart-square' size='sm'></box-icon>Dashboard</li>
+                            <li className="navItem"><box-icon name='task' size='sm'></box-icon>Tasks</li>
+                            <li className="navItem"><box-icon name='target-lock' size='sm'></box-icon>Goals</li>
+                            <li className="navItem"><box-icon name='calendar' size='sm'></box-icon>Calendar</li>
+                        </ul>
+                    </div>
                 </nav>
 
                 <article className="user-article">

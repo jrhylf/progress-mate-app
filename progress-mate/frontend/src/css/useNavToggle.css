@@ -1,0 +1,36 @@
+/* #nav.hide {
+    transition: max-height 0.5s ease-out;
+}
+
+#nav.show {
+    transition: max-height 0.5s ease;
+}
+
+#contents.hide-elements {
+    transition: opacity 0.5s ease;
+}
+
+#contents.show-elements {
+    transition: opacity 0.5s ease;
+} */
+
+.nav_btn {
+    border: none;
+}
+
+.nav-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.nav-container.open {
+    max-height: 300px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
