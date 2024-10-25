@@ -2,62 +2,59 @@ import { useState, useEffect } from "react";
 
 const useNavToggle = () => {
     // Get the screen width 1400px minimum (for desktop)
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1400);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1280);
     const [isOpen, setIsOpen] = useState(false);
 
     // Handle screen resize to update desktop state
     useEffect(() => {
         const updateNavState = () => {
-            const desktopWidth = window.innerWidth >= 1400;
+            const desktopWidth = window.innerWidth >= 1280;
             setIsDesktop(desktopWidth);
 
             // Adjust the navContainer based on the screen size
             const nav = document.getElementById('nav');
-            const pageName = document.getElementById('pageName');
-            const navBtn = document.getElementById('nav-btn');
             const navContainer = document.getElementById('nav-container');
-            const navItemName = document.querySelectorAll('.nav-item-name');
-            const navList = document.querySelectorAll('.navItem');
+            const navBtn = document.getElementById('nav-btn');
+            // const pageName = document.getElementById('pageName');
+            // const navItem = document.querySelectorAll('.navItem');
+            // const navItemName = document.querySelectorAll('.nav-item-name');
+            // const dashboardIcon = document.querySelector("box-icon[name='bar-chart-square']");
+            // const taskIcon = document.querySelector("box-icon[name='task']");
+            // const goalIcon = document.querySelector("box-icon[name='target-lock']");
+            // const calendarIcon = document.querySelector("box-icon[name='calendar']");
 
             if (desktopWidth) {
                 // Desktop size: ensure the nav is open
                 navContainer?.classList.remove('close');
                 navContainer?.classList.add('open');
-                nav?.classList.add('sideExpand');
+                // pageName?.classList.add('hide');
 
-                const navExpand = () => {
-                    nav?.classList.add('sideCollapse');
-                };
+                // navItem.forEach(item => {
+                //     item.classList.add('margin');
+                // });
 
-                if (nav?.classList.contains('sideExpand')) {
-                    // Close Sidebar
+                // 
+                if (!nav?.classList.contains('collapse')) {
                     navBtn?.addEventListener('click', function() {
-                        nav?.classList.remove('sideExpand');
-                        nav?.classList.add('sideCollapse');
-                        pageName?.classList.add('absolute');
+                        // nav?.classList.add('collapse');
+
+                        // navItemName.forEach(itemName => {
+                        //     itemName.classList.add('hide');
+                        // });
                         
-                        navItemName.forEach(item => {
-                            item.classList.add('itemCollapse');
-                        });
+                        // dashboardIcon.style.marginRight = '0';
+                        // taskIcon.style.marginRight = '0';
+                        // goalIcon.style.marginRight = '0';
+                        // calendarIcon.style.marginRight = '0';
 
-                        navList.forEach(item => {
-                            item.classList.add('mr-0');
-                        });
-                    });
-
-                    navBtn.removeEventListener('click', navExpand);
-                }
-                else if (nav?.classList.contains('sideCollapse')) {
-                    // Open Sidebar
-                    navBtn?.addEventListener('click', function() {
-                        nav?.classList.add('sideExpand');
-                        nav?.classList.remove('sideCollapse');
-                        pageName?.classList.remove('absolute');
+                        // dashboardIcon.setAttribute('size', 'md');
+                        // taskIcon.setAttribute('size', 'md');
+                        // goalIcon.setAttribute('size', 'md');
+                        // calendarIcon.setAttribute('size', 'md');
                     });
                 }
             } else {
                 // Mobile size: remove 'open' class
-                nav?.classList.remove('sideExpand');
                 navContainer?.classList.remove('open');
                 navContainer?.classList.add('close');
             }

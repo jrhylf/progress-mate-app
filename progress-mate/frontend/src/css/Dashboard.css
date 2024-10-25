@@ -31,7 +31,7 @@
     background-color: var(--background-color2);
     padding: 1rem;
     color: var(--text-color1);
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .nav-header {
@@ -46,7 +46,7 @@
     align-items: center;
     margin: 0.5rem 0;
     color: var(--text-color1);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -88,19 +88,41 @@
     margin: 0 12px; /* Space around the slash */
 }
 
-@media screen and (min-width: 1400px){
+/* Still fixing */
+/* For Tablet Landscape */
+/* @media screen and (min-width: 769px) and (max-width: 1279px) {
     .user-main {
         display: flex;
     }
 
     .nav {
-        width: 100%;
-        max-width: 18%;
+        max-width: 15%;
         transition: max-width 0.5s ease-out;
     }
 
     .nav-header {
         margin-bottom: 1rem;
+    }
+} */
+/* Still fixing */
+
+/* For Desktop */
+@media screen and (min-width: 1280px){
+    .user-main {
+        display: flex;
+    }
+
+    .nav {
+        max-width: 15%;
+        transition: max-width 0.5s ease-out;
+    }
+
+    /* .nav-header {
+        justify-content: end;
+    } */
+
+    .navItem:nth-child(1) {
+        margin-top: 0.5rem;
     }
 }
 

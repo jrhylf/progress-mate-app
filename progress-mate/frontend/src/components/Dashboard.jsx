@@ -21,31 +21,30 @@ import useNavToggle from "../js/useNavToggle";
 function Dashboard() {
     const { isOpen, toggleNav } = useNavToggle();
 
-    const [iconSize, setIconSize] = useState('sm');
-
-    const changeIconSize = () => {
-        setIconSize('md');  // Dynamically change to 'md'
-    };
-
     // TODO: Get the username from Login Session.
     const [username, setUsername] = useState('John');
 
     // TODO: Apply login session for this.
     // const navigate = useNavigate();
 
-    const [currentPage, setCurrentPage] = useState("dashboardPage");
+    const [currentPage, setCurrentPage] = useState('Dashboard');
     const renderPage = () => {
         switch (currentPage) {
-        case 'dashboardPage':
-            return <DashboardPage />
-        case 'tasksPage':
-            return <TasksPage />;
-        case 'goalsPage':
-            return <GoalsPage />;
-        case 'calendarPage':
-            return <CalendarPage />;
-        default:
-            return <DashboardPage />;
+            case 'dashboardPage':
+                setCurrentPage('Dashboard');
+                return <DashboardPage />
+            case 'tasksPage':
+                setCurrentPage('Tasks');
+                return <TasksPage />;
+            case 'goalsPage':
+                setCurrentPage('Goals');
+                return <GoalsPage />;
+            case 'calendarPage':
+                setCurrentPage('Calendar');
+                return <CalendarPage />;
+            default:
+                // setCurrentPage('Dashboard');
+                return <DashboardPage />;
         }
     };
 
@@ -69,27 +68,27 @@ function Dashboard() {
                         <span id="pageName" className="pageName">{currentPage}</span>
 
                         {/* Menu Icon */}
-                        <button id="nav-btn" className="nav_btn" onClick={() => { toggleNav(); changeIconSize(); }} aria-label="Toggle navigation">
+                        <button id="nav-btn" className="nav_btn" onClick={toggleNav} aria-label="Toggle navigation">
                             <box-icon id="menuIcon" name='menu' size='md' border='square'></box-icon>
                         </button>
                     </header>
                     
                     <div id="nav-container" className={`nav-container ${isOpen ? 'open' : 'close'}`}>
                         <ul className="nav-links">
-                            <li className={currentPage === 'dashboardPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('dashboardPage')}>
-                                <box-icon name='bar-chart-square' size={iconSize}></box-icon>
+                            <li title="Dashboard" className={currentPage === 'dashboardPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('dashboardPage')}>
+                                <box-icon name='bar-chart-square' size='sm'></box-icon>
                                 <span className="nav-item-name">Dashboard</span>
                             </li>
-                            <li className={currentPage === 'tasksPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('tasksPage')}>
-                                <box-icon name='task' size={iconSize}></box-icon>
+                            <li title="Tasks" className={currentPage === 'tasksPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('tasksPage')}>
+                                <box-icon name='task' size='sm'></box-icon>
                                 <span className="nav-item-name">Tasks</span>
                             </li>
-                            <li className={currentPage === 'goalsPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('goalsPage')}>
-                                <box-icon name='target-lock' size={iconSize}></box-icon>
+                            <li title="Goals" className={currentPage === 'goalsPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('goalsPage')}>
+                                <box-icon name='target-lock' size='sm'></box-icon>
                                 <span className="nav-item-name">Goals</span>
                             </li>
-                            <li className={currentPage === 'calendarPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('calendarPage')}>
-                                <box-icon name='calendar' size={iconSize}></box-icon>
+                            <li title="Calendar" className={currentPage === 'calendarPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('calendarPage')}>
+                                <box-icon name='calendar' size='sm'></box-icon>
                                 <span className="nav-item-name">Calendar</span>
                             </li>
                         </ul>

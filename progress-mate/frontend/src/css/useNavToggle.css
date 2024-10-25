@@ -1,28 +1,17 @@
-.nav.sideExpand {
-    max-width: 15%;
-}
-
-.nav.sideCollapse {
+.nav.collapse {
     max-width: 5%;
 }
 
-.pageName.absolute, .nav-item-name.itemCollapse {
+.pageName.hide, .nav-item-name.hide {
     display: none;
+}
+
+.navItem.margin {
+    margin: 1rem 0;
 }
 
 .nav_btn {
     border: none;
-}
-
-.navItem.mr-0 box-icon {
-    margin-right: 0;
-}
-
-.navItem.mr-0 {
-    height: auto;
-    max-height: 36px;
-    width: 100%;
-    max-width: 36px;
 }
 
 .nav-container {
@@ -40,5 +29,4 @@
     margin: 0;
     padding: 0;
 }
-
 
