@@ -13,20 +13,51 @@ const useNavToggle = () => {
 
             // Adjust the navContainer based on the screen size
             const nav = document.getElementById('nav');
+            const pageName = document.getElementById('pageName');
+            const navBtn = document.getElementById('nav-btn');
             const navContainer = document.getElementById('nav-container');
-            const navItemName = document.getElementsByClassName('nav-item-name');
+            const navItemName = document.querySelectorAll('.nav-item-name');
+            const navList = document.querySelectorAll('.navItem');
 
             if (desktopWidth) {
                 // Desktop size: ensure the nav is open
                 navContainer?.classList.remove('close');
                 navContainer?.classList.add('open');
+                nav?.classList.add('sideExpand');
 
-                // TODO: Fix this.
-                navItemName[0].classList.add('show');
-                // TODO: Fix the sidebar
+                const navExpand = () => {
+                    nav?.classList.add('sideCollapse');
+                };
+
+                if (nav?.classList.contains('sideExpand')) {
+                    // Close Sidebar
+                    navBtn?.addEventListener('click', function() {
+                        nav?.classList.remove('sideExpand');
+                        nav?.classList.add('sideCollapse');
+                        pageName?.classList.add('absolute');
+                        
+                        navItemName.forEach(item => {
+                            item.classList.add('itemCollapse');
+                        });
+
+                        navList.forEach(item => {
+                            item.classList.add('mr-0');
+                        });
+                    });
+
+                    navBtn.removeEventListener('click', navExpand);
+                }
+                else if (nav?.classList.contains('sideCollapse')) {
+                    // Open Sidebar
+                    navBtn?.addEventListener('click', function() {
+                        nav?.classList.add('sideExpand');
+                        nav?.classList.remove('sideCollapse');
+                        pageName?.classList.remove('absolute');
+                    });
+                }
             } else {
                 // Mobile size: remove 'open' class
-                nav?.classList.remove('side');
+                nav?.classList.remove('sideExpand');
                 navContainer?.classList.remove('open');
                 navContainer?.classList.add('close');
             }
