@@ -30,9 +30,10 @@ export const Input = ({ type, placeholder, value, onChange, error }) => {
 };
 
 // Button Component
-export const Button = ({ text, onClick, className }) => {
+export const Button = ({ text, onClick, className, icon }) => {
     return (
         <button onClick={onClick} className={className}>
+            {icon}
             {text}
         </button>
     );

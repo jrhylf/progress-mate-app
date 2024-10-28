@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 
 // Packages / Libraries
@@ -27,26 +27,28 @@ function Dashboard() {
     // TODO: Apply login session for this.
     // const navigate = useNavigate();
 
-    const [currentPage, setCurrentPage] = useState('Dashboard');
+    const [currentPage, setCurrentPage] = useState(() => {
+        return localStorage.getItem('currentPage');
+    });
+
     const renderPage = () => {
         switch (currentPage) {
             case 'dashboardPage':
-                setCurrentPage('Dashboard');
                 return <DashboardPage />
             case 'tasksPage':
-                setCurrentPage('Tasks');
                 return <TasksPage />;
             case 'goalsPage':
-                setCurrentPage('Goals');
                 return <GoalsPage />;
             case 'calendarPage':
-                setCurrentPage('Calendar');
                 return <CalendarPage />;
             default:
-                // setCurrentPage('Dashboard');
                 return <DashboardPage />;
         }
     };
+
+    useEffect(() => {
+        localStorage.setItem('currentPage', currentPage);
+    }, [currentPage]);
 
     return(
         <div>

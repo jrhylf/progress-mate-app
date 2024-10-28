@@ -12,47 +12,12 @@ const useNavToggle = () => {
             setIsDesktop(desktopWidth);
 
             // Adjust the navContainer based on the screen size
-            const nav = document.getElementById('nav');
             const navContainer = document.getElementById('nav-container');
-            const navBtn = document.getElementById('nav-btn');
-            // const pageName = document.getElementById('pageName');
-            // const navItem = document.querySelectorAll('.navItem');
-            // const navItemName = document.querySelectorAll('.nav-item-name');
-            // const dashboardIcon = document.querySelector("box-icon[name='bar-chart-square']");
-            // const taskIcon = document.querySelector("box-icon[name='task']");
-            // const goalIcon = document.querySelector("box-icon[name='target-lock']");
-            // const calendarIcon = document.querySelector("box-icon[name='calendar']");
 
             if (desktopWidth) {
                 // Desktop size: ensure the nav is open
                 navContainer?.classList.remove('close');
                 navContainer?.classList.add('open');
-                // pageName?.classList.add('hide');
-
-                // navItem.forEach(item => {
-                //     item.classList.add('margin');
-                // });
-
-                // 
-                if (!nav?.classList.contains('collapse')) {
-                    navBtn?.addEventListener('click', function() {
-                        // nav?.classList.add('collapse');
-
-                        // navItemName.forEach(itemName => {
-                        //     itemName.classList.add('hide');
-                        // });
-                        
-                        // dashboardIcon.style.marginRight = '0';
-                        // taskIcon.style.marginRight = '0';
-                        // goalIcon.style.marginRight = '0';
-                        // calendarIcon.style.marginRight = '0';
-
-                        // dashboardIcon.setAttribute('size', 'md');
-                        // taskIcon.setAttribute('size', 'md');
-                        // goalIcon.setAttribute('size', 'md');
-                        // calendarIcon.setAttribute('size', 'md');
-                    });
-                }
             } else {
                 // Mobile size: remove 'open' class
                 navContainer?.classList.remove('open');

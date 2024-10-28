@@ -51,8 +51,12 @@
     transition: background-color 0.2s ease;
 }
 
+.navItem.active {
+    background-color: var(--border-color);
+}
+
 .navItem:nth-child(1) {
-    margin-top: 0;
+    margin-top: 1rem;
 }
 
 .navItem:nth-child(4) {
@@ -113,13 +117,13 @@
     }
 
     .nav {
-        max-width: 15%;
+        max-width: 12%;
         transition: max-width 0.5s ease-out;
     }
 
-    /* .nav-header {
-        justify-content: end;
-    } */
+    .pageName, .nav_btn {
+        display: none;
+    }
 
     .navItem:nth-child(1) {
         margin-top: 0.5rem;

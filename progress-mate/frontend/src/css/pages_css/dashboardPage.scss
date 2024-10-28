@@ -1,6 +1,7 @@
 // Variables
 $background-light: #ffffff;
 $background-light2: #f0f0f0;
+$background-dark: #333333;
 $primary-color: #4CAF50;
 
 $text-dark: #333333;
@@ -16,25 +17,134 @@ $border-color: #E0E0E0;
     height: auto;
     width: 100%;
 
-    main {
+    .dashboardMain {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+
         @mixin section-style {
             height: auto;
             width: 100%;
             padding: 1rem;
-            border: 1px solid $border-color;
-            background-color: $background-light2;
+            color: $text-dark;
+            background-color: $background-light;
+            box-shadow: 2px 4px 8px $background-light2;
+            flex-grow: 1;
+            flex-basis: 40%;
+        }
+
+        @mixin displayFlex($display: flex, $flex-direction: column) {
+            display: $display;
+            flex-direction: $flex-direction;
         }
         
         .taskSection {
             @include section-style;
+
+            article {
+                @include displayFlex($flex-direction: row);
+                justify-content: space-between;
+
+                .bx {
+                    font-size: medium;
+                }
+
+                Button {
+                    @include displayFlex($flex-direction: row);
+                    align-items: center;
+                    gap: 4px;
+                    padding: 0.4rem 0.8rem;
+                    color: $highlight;
+                    border: solid 1px $highlight;
+                    background-color: $background-light;
+                    box-shadow: 4px 4px 0 0 $highlight;
+                    transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
+                }
+                
+                Button:hover {
+                    color: $text-light;
+                    background-color: $highlight;
+                }
+
+                Button:active {
+                    transform: translateX(4px) translateY(4px);
+                    box-shadow: none;
+                }
+            }
+
+            .taskField {
+                @include displayFlex;
+                list-style: none;
+
+                .taskItem {
+                    @include displayFlex($flex-direction: row);
+                    height: auto;
+                    width: 100%;
+                    padding: 0.2rem;
+
+                    input {
+                        vertical-align: middle;
+                    }
+
+                    .taskName {
+                        vertical-align: middle;
+                        margin-left: 0.5rem;
+                    }
+
+                    .taskName.stroke {
+                        text-decoration: line-through
+                    }
+                }
+            }
         }
         
         .goalSection {
             @include section-style;
+
+            article {
+                @include displayFlex($flex-direction: row);
+                justify-content: space-between;
+
+                .bx {
+                    font-size: medium;
+                }
+
+                Button {
+                    @include displayFlex($flex-direction: row);
+                    align-items: center;
+                    gap: 4px;
+                    padding: 0.4rem 0.8rem;
+                    color: $highlight;
+                    border: solid 1px $highlight;
+                    background-color: $background-light;
+                    box-shadow: 4px 4px 0 0 $highlight;
+                    transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
+                }
+                
+                Button:hover {
+                    color: $text-light;
+                    background-color: $highlight;
+                }
+
+                Button:active {
+                    transform: translateX(4px) translateY(4px);
+                    box-shadow: none;
+                }
+            }
         }
         
         .calendarSection {
             @include section-style;
         }    
     }    
+}
+
+// For Mobile Portrait
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .dashboard {
+        .dashboardMain {
+            flex-direction: column;
+        }
+    }
 }
