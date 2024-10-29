@@ -28,7 +28,7 @@ function Dashboard() {
     // const navigate = useNavigate();
 
     const [currentPage, setCurrentPage] = useState(() => {
-        return localStorage.getItem('currentPage');
+        return localStorage.getItem('currentPage') || 'Dashboard';
     });
 
     const renderPage = () => {
@@ -103,7 +103,7 @@ function Dashboard() {
                     <span className="breadcrumb">
                         <box-icon name="home-circle" type="solid"></box-icon> 
                         <span className="slash">/</span> 
-                        <span>Dashboard</span>
+                        <span>{currentPage}</span>
                     </span>
 
                     {/* This contain Router Pages. */}

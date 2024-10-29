@@ -39,5 +39,10 @@ export const Button = ({ text, onClick, className, icon }) => {
     );
 };
 
-
+// Progress Bar Component
+export const Progress = ({ min, max, value, className }) => {
+    return (
+        <progress min={min} max={max} value={value} className={className}></progress>
+    );
+};
 

@@ -92,6 +92,14 @@
     margin: 0 12px; /* Space around the slash */
 }
 
+/* Footer */
+.user-footer {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    color: var(--text-color1);
+}
+
 /* Still fixing */
 /* For Tablet Landscape */
 /* @media screen and (min-width: 769px) and (max-width: 1279px) {

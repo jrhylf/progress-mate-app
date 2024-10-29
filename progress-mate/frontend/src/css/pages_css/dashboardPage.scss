@@ -14,7 +14,7 @@ $border-color: #E0E0E0;
 // ========================= //
 
 .dashboard {
-    height: auto;
+    min-height: 100vh;
     width: 100%;
 
     .dashboardMain {
@@ -50,7 +50,7 @@ $border-color: #E0E0E0;
                     font-size: medium;
                 }
 
-                Button {
+                .addTaskBtn {
                     @include displayFlex($flex-direction: row);
                     align-items: center;
                     gap: 4px;
@@ -62,12 +62,12 @@ $border-color: #E0E0E0;
                     transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
                 }
                 
-                Button:hover {
+                .addTaskBtn:hover {
                     color: $text-light;
                     background-color: $highlight;
                 }
 
-                Button:active {
+                .addTaskBtn:active {
                     transform: translateX(4px) translateY(4px);
                     box-shadow: none;
                 }
@@ -76,6 +76,8 @@ $border-color: #E0E0E0;
             .taskField {
                 @include displayFlex;
                 list-style: none;
+                max-height: 500px;
+                overflow: auto;
 
                 .taskItem {
                     @include displayFlex($flex-direction: row);
@@ -92,6 +94,7 @@ $border-color: #E0E0E0;
                         margin-left: 0.5rem;
                     }
 
+                    // Still not added to the system
                     .taskName.stroke {
                         text-decoration: line-through
                     }
@@ -110,7 +113,7 @@ $border-color: #E0E0E0;
                     font-size: medium;
                 }
 
-                Button {
+                .addGoalBtn {
                     @include displayFlex($flex-direction: row);
                     align-items: center;
                     gap: 4px;
@@ -122,14 +125,95 @@ $border-color: #E0E0E0;
                     transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
                 }
                 
-                Button:hover {
+                .addGoalBtn:hover {
                     color: $text-light;
                     background-color: $highlight;
                 }
 
-                Button:active {
+                .addGoalBtn:active {
                     transform: translateX(4px) translateY(4px);
                     box-shadow: none;
+                }
+            }
+
+            .goalField {
+                @include displayFlex;
+                list-style: none;
+                max-height: 500px;
+                overflow: auto;
+
+                .goalItem {
+                    @include displayFlex($flex-direction: row);
+                    height: auto;
+                    width: 100%;
+                    padding: 0.2rem;
+
+                    .goalContainer {
+                        @include displayFlex($flex-direction: row);
+                        height: auto;
+                        width: 100%;
+
+                        aside:nth-child(1) {
+                            @include displayFlex();
+                            height: auto;
+                            width: 95%;
+                            padding: 0.5rem;
+                            border-radius: 10px 0 0 10px;
+                            border: solid 2px $border-color;
+                            border-right: none;
+                            overflow: hidden;
+                            transition: height 1s ease;
+
+                            .goalName {
+                                vertical-align: middle;
+                            }
+    
+                            Progress {
+                                height: 25px;
+                                width: 100%;
+                            }
+                        }
+
+                        .goalContent.expand {
+                            height: 210px;
+                            border-bottom-right-radius: 10px;
+                            border-right: solid 2px $border-color;
+                        }
+
+                        aside:nth-child(2) {
+                            margin: 0 auto;
+
+                            .dropdownBtn {
+                                @include displayFlex();
+                                align-items: center;
+                                justify-content: center;
+                                height: 70px;
+                                width: 35px;
+                                border-radius: 0 10px 10px 0;
+                                border: solid 2px $border-color;
+                                border-left: none;
+                                color: $text-dark;
+                                background-color: $background-light2;
+                                transition: background-color 0.2s ease;
+
+                                .bx-chevron-down {
+                                    transition: transform 0.2s ease;
+                                }
+
+                                .bx-chevron-down.rotate {
+                                    transform: rotate(180deg);
+                                }
+                            }
+
+                            .dropdownBtn:hover {
+                                background-color: $border-color;
+                            }
+
+                            .dropdownBtn:active {
+                                background-color: $background-light2;
+                            }
+                        }
+                    }
                 }
             }
         }

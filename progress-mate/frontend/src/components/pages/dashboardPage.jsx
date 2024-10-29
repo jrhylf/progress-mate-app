@@ -1,12 +1,36 @@
 import React from "react";
 
 // Components
-import { Button } from '../Components';
+import { Button, Progress } from '../Components';
 
 // CSS
 import '../../css/pages_css/dashboardPage.scss';
 
+// JS
+import rotateChevronDown from '../../js/bx_ChevronDown';
+
 function DashboardPage() {
+    let taskList = [
+        'Code the tasks today.',
+        'Code the goals today.',
+        'Code the calendar today.',
+        'Code the tasks today.',
+        'Code the goals today.',
+        'Code the calendar today.',
+        'Code the tasks today.',
+        'Code the goals today.',
+        'Code the calendar today.',
+    ];
+
+    let goalList = [
+        'Develop the tasks today.',
+        'Develop the goals today.',
+        'Develop the calendar today.',
+        'Develop the tasks today.',
+        'Develop the goals today.',
+        'Develop the calendar today.',
+    ];
+
     return(
         <div className="dashboard">
             <main className="dashboardMain" aria-label="Dashboard Main Content">
@@ -16,29 +40,21 @@ function DashboardPage() {
                         <Button
                             icon={<i className='bx bx-plus'></i>}
                             text={'Add Task'}
-                            onClick={console.log('Task added.')}
+                            className={'addTaskBtn'}
                         />
                     </article>
 
+                    <br />
+
                     <ul className="taskField">
-                        <li className="taskItem">
-                            <label htmlFor="taskCheckbox">
-                                <input type="checkbox" id="taskCheckbox" />
-                                <span className="taskName">Code the task today.</span>
-                            </label>
-                        </li>
-                        <li className="taskItem">
-                            <label htmlFor="taskCheckbox">
-                                <input type="checkbox" id="taskCheckbox" />
-                                <span className="taskName">Code the goals today.</span>
-                            </label>
-                        </li>
-                        <li className="taskItem">
-                            <label htmlFor="taskCheckbox">
-                                <input type="checkbox" id="taskCheckbox" />
-                                <span className="taskName">Code the calendar today.</span>
-                            </label>
-                        </li>
+                        {taskList.map((task, index) => (
+                            <li className="taskItem" key={index}>
+                                <label htmlFor={`taskCheckbox-${index}`}>
+                                    <input type="checkbox" id={`taskCheckbox-${index}`} />
+                                    <span className="taskName">{task}</span>
+                                </label>
+                            </li>
+                        ))}
                     </ul>
                 </section>
 
@@ -48,11 +64,31 @@ function DashboardPage() {
                         <Button
                             icon={<i className='bx bx-plus'></i>}
                             text={'Add Goal'}
-                            onClick={console.log('Task added.')}
+                            className={'addGoalBtn'}
                         />
                     </article>
 
+                    <br />
 
+                    <ul className="goalField">
+                        {goalList.map((goal, index) => (
+                            <li className="goalItem" key={index}>
+                                <article className="goalContainer" >
+                                    <aside id="goalContent" className="goalContent">
+                                        <span className="goalName">{goal}</span>
+                                        <Progress min={0} max={10} value={7} />
+                                    </aside>
+                                    <aside>
+                                        <Button 
+                                            icon={<i className='bx bx-chevron-down'></i>}
+                                            className={'dropdownBtn'}
+                                            onClick={(event) => rotateChevronDown(event)}
+                                        />
+                                    </aside>
+                                </article>
+                            </li>
+                        ))}
+                    </ul>
                 </section>
 
                 <section className="calendarSection">
