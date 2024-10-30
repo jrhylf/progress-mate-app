@@ -14,6 +14,7 @@ import CalendarPage from "./pages/calendarPage";
 import '../css/Dashboard.css';
 import '../css/custom_bx_icon.css';
 import '../css/useNavToggle.css';
+import '../css/custom_scroll_bar.css';
 
 //JS
 import useNavToggle from "../js/useNavToggle";
@@ -78,19 +79,19 @@ function Dashboard() {
                     <div id="nav-container" className={`nav-container ${isOpen ? 'open' : 'close'}`}>
                         <ul className="nav-links">
                             <li title="Dashboard" className={currentPage === 'dashboardPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('dashboardPage')}>
-                                <box-icon name='bar-chart-square' size='sm'></box-icon>
+                                <i className='bx bxs-dashboard' ></i>
                                 <span className="nav-item-name">Dashboard</span>
                             </li>
                             <li title="Tasks" className={currentPage === 'tasksPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('tasksPage')}>
-                                <box-icon name='task' size='sm'></box-icon>
+                                <i className='bx bx-task' ></i>
                                 <span className="nav-item-name">Tasks</span>
                             </li>
                             <li title="Goals" className={currentPage === 'goalsPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('goalsPage')}>
-                                <box-icon name='target-lock' size='sm'></box-icon>
+                                <i className='bx bx-target-lock' ></i>
                                 <span className="nav-item-name">Goals</span>
                             </li>
                             <li title="Calendar" className={currentPage === 'calendarPage' ? 'navItem active' : 'navItem'} onClick={() => setCurrentPage('calendarPage')}>
-                                <box-icon name='calendar' size='sm'></box-icon>
+                                <i className='bx bxs-calendar' ></i>
                                 <span className="nav-item-name">Calendar</span>
                             </li>
                         </ul>

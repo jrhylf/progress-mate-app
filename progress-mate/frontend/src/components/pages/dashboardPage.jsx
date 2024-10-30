@@ -14,18 +14,9 @@ function DashboardPage() {
         'Code the tasks today.',
         'Code the goals today.',
         'Code the calendar today.',
-        'Code the tasks today.',
-        'Code the goals today.',
-        'Code the calendar today.',
-        'Code the tasks today.',
-        'Code the goals today.',
-        'Code the calendar today.',
     ];
 
     let goalList = [
-        'Develop the tasks today.',
-        'Develop the goals today.',
-        'Develop the calendar today.',
         'Develop the tasks today.',
         'Develop the goals today.',
         'Develop the calendar today.',
@@ -75,10 +66,29 @@ function DashboardPage() {
                             <li className="goalItem" key={index}>
                                 <article className="goalContainer" >
                                     <aside id="goalContent" className="goalContent">
-                                        <span className="goalName">{goal}</span>
-                                        <Progress min={0} max={10} value={7} />
+                                        {/* // TODO: Get the list of goals */}
+                                        <div>
+                                            <span className="goalName">{goal}</span>
+                                            <Progress min={0} max={10} value={7} />
+                                        </div>
+
+                                        {/* // TODO: Get the list based on which Goal per task. */}
+                                        <ul className="taskContainer">
+                                            <li className="subTask">
+                                                <i className='bx bxs-circle'></i>
+                                                <span className="taskName">Task 1</span>
+                                            </li>
+                                            <li className="subTask">
+                                                <i className='bx bxs-circle'></i>
+                                                <span className="taskName">Task 2</span>
+                                            </li>
+                                            <li className="subTask">
+                                                <i className='bx bxs-circle'></i>
+                                                <span className="taskName">Task 3</span>
+                                            </li>
+                                        </ul>
                                     </aside>
-                                    <aside>
+                                    <aside className="ddBtnContainer">
                                         <Button 
                                             icon={<i className='bx bx-chevron-down'></i>}
                                             className={'dropdownBtn'}

@@ -8,6 +8,8 @@
 }
 
 :root {
+  --background-dark: #333333;
+  --background-darker: #202020;
   --background-color: #ffffff;
   --background-color2: #f0f0f0;
   --primary-accent: #4CAF50;

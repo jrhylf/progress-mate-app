@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // CSS
 import '../css/LandingPage.css';
 import '../css/animated_bg.css';
+import '../css/custom_scroll_bar.css';
 import { Button } from './Components';
 
 function LandingPage() {

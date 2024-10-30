@@ -14,7 +14,7 @@ $border-color: #E0E0E0;
 // ========================= //
 
 .dashboard {
-    min-height: 100vh;
+    height: auto;
     width: 100%;
 
     .dashboardMain {
@@ -94,7 +94,7 @@ $border-color: #E0E0E0;
                         margin-left: 0.5rem;
                     }
 
-                    // Still not added to the system
+                    // TODO: Add stroke when tasks is checked
                     .taskName.stroke {
                         text-decoration: line-through
                     }
@@ -153,24 +153,42 @@ $border-color: #E0E0E0;
                         height: auto;
                         width: 100%;
 
-                        aside:nth-child(1) {
+                        .goalContent {
                             @include displayFlex();
-                            height: auto;
-                            width: 95%;
+                            height: 70px;
+                            max-height: fit-content;
+                            width: 100%;
                             padding: 0.5rem;
                             border-radius: 10px 0 0 10px;
                             border: solid 2px $border-color;
-                            border-right: none;
                             overflow: hidden;
-                            transition: height 1s ease;
-
-                            .goalName {
-                                vertical-align: middle;
-                            }
+                            transition: height 0.5s ease;
     
                             Progress {
                                 height: 25px;
                                 width: 100%;
+                            }
+
+                            .taskContainer {
+                                @include displayFlex();
+                                height: auto;
+                                width: 100%;
+                                list-style: none;
+                                overflow: hidden;
+
+                                .subTask {
+                                    margin-left: 1rem;
+                                    width: 100%;
+
+                                    .bxs-circle {
+                                        font-size: 0.6rem;
+                                    }
+
+                                    .taskName {
+                                        vertical-align: middle;
+                                        margin-left: 0.5rem;
+                                    }
+                                }
                             }
                         }
 
@@ -178,11 +196,10 @@ $border-color: #E0E0E0;
                             height: 210px;
                             border-bottom-right-radius: 10px;
                             border-right: solid 2px $border-color;
+                            overflow-y: auto;
                         }
 
-                        aside:nth-child(2) {
-                            margin: 0 auto;
-
+                        .ddBtnContainer {
                             .dropdownBtn {
                                 @include displayFlex();
                                 align-items: center;
