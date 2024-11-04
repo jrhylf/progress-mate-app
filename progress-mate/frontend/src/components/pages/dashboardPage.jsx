@@ -105,6 +105,7 @@ function DashboardPage() {
                     <h2>Calendar</h2>
 
                     {/* // TODO: Calendar integration */}
+                    <p>Coming soon!</p>
                 </section>
             </main>
         </div>

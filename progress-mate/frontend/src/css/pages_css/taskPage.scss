@@ -1,0 +1,76 @@
+// Variables
+$background-light: #ffffff;
+$background-light2: #f0f0f0;
+$background-dark: #333333;
+$primary-color: #4CAF50;
+
+$text-dark: #333333;
+$text-light: #fafafa;
+$text-medium: #666666;
+
+$highlight: #FF9800;
+$border-color: #E0E0E0;
+
+// ========================= //
+
+.task {
+    height: auto;
+    width: 100%;
+
+    @mixin card {
+        height: auto;
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem auto;
+        color: $text-dark;
+        background-color: $background-light;
+        box-shadow: 2px 4px 8px $background-light2;
+    }
+
+    @mixin displayFlex($display: flex, $flex-direction: column) {
+        display: $display;
+        flex-direction: $flex-direction;
+    }
+
+    .tasksHeader {
+        @include card();
+        @include displayFlex();
+        justify-content: center;
+
+        .pageDescription {
+            color: $text-medium;
+        }
+    }
+
+    .taskMain {
+        @include card();
+        @include displayFlex();
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: $background-light2;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 0.4rem 0.8rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: $background-dark;
+            color: $text-light;
+        }
+        
+        tr:nth-child(even) {
+            background-color: $background-light;
+        }
+        
+        tr:hover {
+            background-color: #ddd;
+        }        
+    }
+}
+
