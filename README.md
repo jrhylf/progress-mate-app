@@ -24,8 +24,8 @@ _A Productivity Dashboard for Managing Tasks, Tracking Goals, and Boosting Produ
   
 ## Technologies
 - **Frontend**: React, HTML5, CSS3
-- **Backend**: Laravel (PHP)
-- **Database**: MySQL
+- **Backend**: Laravel or NodeJS
+- **Database**: MySQL or NoSQL
 - **Version Control**: Git
 
 ## Getting Started
