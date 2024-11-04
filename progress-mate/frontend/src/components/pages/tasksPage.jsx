@@ -37,6 +37,16 @@ function TasksPage() {
                         <td>50%</td>
                     </tr>
                 </table>
+
+                <aside className="actionsArea">
+                    <h3>Actions</h3>
+                    <div className="actionsContainer">
+                        <Button 
+                            text={'Add new Task'}
+                            className={'button'}
+                        />
+                    </div>
+                </aside>
             </main>
         </div>
     );

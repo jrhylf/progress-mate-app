@@ -17,9 +17,12 @@ $border-color: #E0E0E0;
     height: auto;
     width: 100%;
 
-    @mixin card {
+    @mixin height_width {
         height: auto;
         width: 100%;
+    }
+
+    @mixin card {
         padding: 1rem;
         margin: 1rem auto;
         color: $text-dark;
@@ -27,14 +30,15 @@ $border-color: #E0E0E0;
         box-shadow: 2px 4px 8px $background-light2;
     }
 
-    @mixin displayFlex($display: flex, $flex-direction: column) {
-        display: $display;
+    @mixin flexColumn($flex-direction: column) {
+        display: flex;
         flex-direction: $flex-direction;
     }
 
     .tasksHeader {
+        @include height_width();
         @include card();
-        @include displayFlex();
+        @include flexColumn();
         justify-content: center;
 
         .pageDescription {
@@ -43,34 +47,61 @@ $border-color: #E0E0E0;
     }
 
     .taskMain {
+        @include height_width();
         @include card();
-        @include displayFlex();
+        @include flexColumn($flex-direction: row);
+        gap: 20px;
 
         table {
-            width: 100%;
+            @include height_width();
             border-collapse: collapse;
             background-color: $background-light2;
             border-radius: 8px;
             overflow: hidden;
+
+            th, td {
+                padding: 0.4rem 0.8rem;
+                text-align: left;
+            }
+            
+            th {
+                background-color: $background-dark;
+                color: $text-light;
+            }
+            
+            tr:nth-child(even) {
+                background-color: $background-light;
+            }
+            
+            tr:hover {
+                background-color: #ddd;
+            }
         }
         
-        th, td {
-            padding: 0.4rem 0.8rem;
-            text-align: left;
+        .actionsArea {
+            @include height_width();
+            @include flexColumn();
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background-color: $background-light2;
+            border-radius: 10px;
+
+            .actionsContainer {
+                @include height_width();
+                @include flexColumn();
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                margin: 1rem;
+
+                .button {
+                    padding: 1rem 2rem;
+                    width: 100%;
+                    max-width: fit-content;
+                }
+            }
         }
-        
-        th {
-            background-color: $background-dark;
-            color: $text-light;
-        }
-        
-        tr:nth-child(even) {
-            background-color: $background-light;
-        }
-        
-        tr:hover {
-            background-color: #ddd;
-        }        
     }
 }
 
