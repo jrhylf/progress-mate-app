@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CSS
 import '../css/LandingPage.css';
 import '../css/animated_bg.css';
 import '../css/custom_scroll_bar.css';
+
 import { Button } from './Components';
+import LoginForm from './LoginForm';
 
 function LandingPage() {
+    const [showLoginForm, setShowLoginForm] = useState(false);
+
+    const handleFormShow = () => {
+        setShowLoginForm(!showLoginForm);
+    };
+
     const navigate = useNavigate();
 
     const goToDashboard = () => {
@@ -34,14 +42,16 @@ function LandingPage() {
                 </div >
 
                 <div className="header-content">
-                <h1 className="heading">Boost Your Productivity</h1>
-                <p>Track tasks, set goals, and get insights—all in one place.</p>
-                <Button 
-                    text={'Get Started'}
-                    className={'getStartedBtn'}
-                    // TODO: Show Login Modal Form instead of goToDashboard
-                    onClick={goToDashboard}
-                />
+                    <h1 className="heading">Boost Your Productivity</h1>
+                    <p>Track tasks, set goals, and get insights—all in one place.</p>
+                    <Button 
+                        text={'Get Started'}
+                        className={'getStartedBtn'}
+                        // TODO: Show Login Modal Form instead of goToDashboard
+                        onClick={handleFormShow}
+                        {...showLoginForm ? 'Close Login Form' : 'Open Login Form'}
+                    />
+                    {showLoginForm && <LoginForm />}
                 </div>
             </header>
 

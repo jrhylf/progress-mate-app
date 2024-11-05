@@ -1,0 +1,42 @@
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it’s on top */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--background-light);
+    display: flex;
+    gap: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.side-image {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    border: solid 1px var(--border-color);
+    background-color: var(--background-dark);
+}
+
+.login-form {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    border: solid 1px var(--border-color);
+    background-color: var(--background-light);
+}
+

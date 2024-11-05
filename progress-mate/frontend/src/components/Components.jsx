@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Label Component
 export const Label = ({ text }) => {
@@ -30,9 +30,10 @@ export const Input = ({ type, placeholder, value, onChange, error }) => {
 };
 
 // Button Component
-export const Button = ({ text, onClick, className, icon }) => {
+export const Button = ({ type, text, onClick, className, icon }) => {
     return (
         <button onClick={onClick} className={className}>
+            {type}
             {icon}
             {text}
         </button>

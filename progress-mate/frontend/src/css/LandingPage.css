@@ -10,13 +10,13 @@
 :root {
   --background-dark: #333333;
   --background-darker: #202020;
-  --background-color: #ffffff;
-  --background-color2: #f0f0f0;
+  --background-light: #ffffff;
+  --background-light2: #f0f0f0;
   --primary-accent: #4CAF50;
 
-  --text-color1: #333333;
-  --text-color2: #fafafa;
-  --text-color3: #666666;
+  --text-dark: #333333;
+  --text-light: #fafafa;
+  --text-medium: #666666;
 
   --highlight: #FF9800;
   --border-color: #E0E0E0;
@@ -48,7 +48,7 @@ button {
   position: absolute;
   height: 50vh;
   width: 100%;
-  color: var(--text-color2);
+  color: var(--text-light);
 }
 
 .heading {
@@ -62,7 +62,7 @@ button {
   margin: 1rem;
   padding: 1rem 2rem;
   background-color: var(--primary-accent);
-  color: var(--text-color2);
+  color: var(--text-light);
   border: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease;
@@ -100,11 +100,11 @@ button {
 .card h2 {
   font-size: 1.5rem;
   margin: 1rem 0;
-  color: var(--text-color1);
+  color: var(--text-dark);
 }
 
 .card p {
-  color: var(--text-color3);
+  color: var(--text-medium);
 }
 
 /* Benefits Section */
@@ -115,7 +115,7 @@ button {
 
 .benefits h2 {
   font-size: 2.5em;
-  color: var(--text-color1);
+  color: var(--text-dark);
   margin-bottom: 1.4rem;
 }
 
@@ -128,7 +128,7 @@ button {
 }
 
 .benefit-item {
-  background-color: var(--background-color);
+  background-color: var(--background-light);
   padding: 1.4rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
@@ -146,7 +146,7 @@ button {
 
 .benefit-item p {
   font-size: 1rem;
-  color: var(--text-color3);
+  color: var(--text-medium);
 }
 
 /* Start Boosting */
@@ -184,8 +184,8 @@ button {
 
 /* Quote Section */
 .quote-section {
-  background-color: var(--background-color2);
-  color: var(--text-color1);
+  background-color: var(--background-light2);
+  color: var(--text-dark);
   text-align: center;
   padding: 2rem 1rem;
 }
@@ -198,7 +198,7 @@ button {
 .blockquote span {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: var(--text-color3);
+  color: var(--text-medium);
 }
 
 /* Footer */
@@ -206,7 +206,7 @@ button {
   height: auto;
   width: 100%;
   padding: 1rem;
-  color: var(--text-color1);
+  color: var(--text-dark);
 }
 
 /* For Desktop 1024px above */
