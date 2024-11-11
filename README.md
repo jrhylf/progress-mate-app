@@ -23,25 +23,25 @@ _A Productivity Dashboard for Managing Tasks, Tracking Goals, and Boosting Produ
 - **Motivational Widget**: Start each day with a motivational quote to keep you inspired.
   
 ## Technologies
-- **Frontend**: React, HTML5, CSS3
-- **Backend**: Laravel or NodeJS
-- **Database**: MySQL or NoSQL
+- **Frontend**: React, HTML5, CSS3, SASS
+- **Backend**: NodeJS
+- **Database**: NoSQL
 - **Version Control**: Git
 
 ## Getting Started
 ### Prerequisites
 - Node.js
-- Composer
-- MySQL (or another SQL database)
+- NoSQL
 
 ### Installation
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/progressmate.git
+   ```
 
 2. Navigate to the project directory:
    ```bash
-   cd progressmate
+   cd progress-mate-app
    ```
 
 3. Install frontend dependencies:
@@ -53,26 +53,22 @@ _A Productivity Dashboard for Managing Tasks, Tracking Goals, and Boosting Produ
 4. Install backend dependencies:
    ```bash
    cd ../backend
-   composer install
+   npm install
    ```
 
-5. Set up the `.env` file for Laravel and configure your database credentials.
+5. Set up the .env file in the backend folder and configure your database credentials. You might need to specify database URL, port, and any other configurations specific to your setup.
 
 6. Run database migrations:
    ```bash
-   php artisan migrate
+    # In the backend directory
+    npm start
    ```
 
 7. Run the React frontend and Laravel backend:
-   ```bash
-   # In one terminal for React
-   cd frontend
-   npm start
-    
-   # In another terminal for Laravel
-   cd backend
-   php artisan serve
-   ```
+    ```bash
+    # In the frontend directory
+    npm start
+    ```
 
 ## Usage
 - **Task Management**: Start by adding tasks from the dashboard, and manage them easily by setting due dates and priorities.
