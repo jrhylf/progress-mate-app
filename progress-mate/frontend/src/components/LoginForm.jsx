@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Components
 import { Input, Button } from '../components/Components';
 
+// Illustrations
+import { ReactComponent as LoginIllustration } from '../assets/svg/Secure-login.svg';
+
 // CSS
 import '../css/loginForm.css';
 
@@ -29,37 +32,41 @@ const LoginForm = () => {
         }
     };
 
-    const handleUsername = (e) => {
-        setUsername(e.target.value);
-    };
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
+    const handleCancel = (e) => {
+        e.preventDefault();
     };
 
     return (
         <div className="login-overlay">
             <main className="login-container">
                 <aside className="side-image">
-                    {/* // TODO: Some object here. */}
-                    Some image here
+                    <LoginIllustration width="500" height="500" />
                 </aside>
                 <form id="login-form" className="login-form">
+                    <h1>Login</h1>
                     <Input 
                         type={'text'}
                         placeholder={'Username'}
-                        onChange={handleUsername}
+                        onChange={(e) => { setUsername(e.target.value); }}
+                        // error={"Nice try"}
                     />
 
                     <Input 
                         type={'password'}
                         placeholder={'Password'}
-                        onChange={handlePassword}
+                        onChange={(e) => { setPassword(e.target.value); }}
                     />
 
                     <Button
                         text={'Login'}
                         onClick={handleSubmit}
+                        className={'login-btn'}
+                    />
+
+                    <Button
+                        text={'Cancel'}
+                        onClick={handleCancel}
+                        className={'cancel-btn'}
                     />
                 </form>
             </main>

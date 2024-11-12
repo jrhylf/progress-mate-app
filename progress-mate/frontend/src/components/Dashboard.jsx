@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 // Packages / Libraries
@@ -15,6 +16,7 @@ import '../css/Dashboard.css';
 import '../css/custom_bx_icon.css';
 import '../css/useNavToggle.css';
 import '../css/custom_scroll_bar.css';
+import '../css/NotFound.css';
 
 //JS
 import useNavToggle from "../js/useNavToggle";
@@ -54,15 +56,19 @@ function Dashboard() {
     return(
         <div>
             <header className="user-header">
-                <span className="greeting">Hi {username}!</span>
+                <div>
+                    <span className="greeting">Hi {username}!</span>
 
-                {/* Waving Hand */}
-                <lord-icon
-                    src="https://cdn.lordicon.com/hkbcsvln.json"
-                    trigger="loop"
-                    delay="3000"
-                    style={{ width: '40px', height: '40px' }}>
-                </lord-icon>
+                    {/* Waving Hand */}
+                    <lord-icon
+                        src="https://cdn.lordicon.com/hkbcsvln.json"
+                        trigger="loop"
+                        delay="3000"
+                        style={{ width: '40px', height: '40px' }}>
+                    </lord-icon>
+                </div>
+
+                <Link to="/" className="logout-btn"><i className='bx bx-arrow-back'></i>Logout</Link>
             </header>
 
             <main className="user-main">

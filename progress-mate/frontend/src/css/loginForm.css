@@ -12,8 +12,9 @@
 }
 
 .login-container {
+    height: auto;
     width: 100%;
-    max-width: 400px;
+    max-width: max-content;
     padding: 1rem;
     border-radius: 10px;
     background-color: var(--background-light);
@@ -28,15 +29,77 @@
     height: auto;
     width: 100%;
     padding: 1rem;
-    border: solid 1px var(--border-color);
-    background-color: var(--background-dark);
+    /* background-color: var(--background-dark); */
 }
 
 .login-form {
     height: auto;
     width: 100%;
+    max-width: 400px;
     padding: 1rem;
-    border: solid 1px var(--border-color);
+    color: var(--text-dark);
     background-color: var(--background-light);
+}
+
+/* Components Styles */
+.input-container {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+.form-input {
+    height: auto;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: solid 2px var(--border-color);
+    border-radius: 8px;
+}
+
+.form-input:focus {
+    border: solid 2px var(--primary-accent);
+}
+
+.error-input {
+    border: solid 2px var(#f73434);
+}
+
+.error-message {
+    position: absolute;
+    top: 85%;
+    left: 0;
+    color: #f73434;
+    font-size: 0.8rem;
+}
+
+.login-btn {
+    width: 100px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    color: var(--text-light);
+    border: solid 2px var(--primary-accent);
+    background-color: var(--primary-accent);
+    transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+    border: solid 2px #57ca5b;
+    background-color: #57ca5b;
+}
+
+.cancel-btn {
+    width: 100px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    color: var(--primary-accent);
+    border: solid 2px var(--primary-accent);
+    background-color: var(--background-light);
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    color: var(--text-light);
+    background-color: var(--primary-accent);
 }
 

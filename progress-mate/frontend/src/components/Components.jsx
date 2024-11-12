@@ -12,16 +12,16 @@ export const Label = ({ text }) => {
 // Input Component
 export const Input = ({ type, placeholder, value, onChange, error }) => {
     return (
-        <div className='h-auto w-full relative'>
+        <div className='input-container'>
             <input 
                 type={type} 
                 placeholder={placeholder} 
                 value={value} 
                 onChange={onChange}
-                className={`h-auto w-full my-1 p-1 border-2 rounded-md ${error ? 'border-red-500' : 'border-gray-300'} active:border-gray-500`}
+                className={`form-input ${error ? 'error-input' : ''}`}
             />
             {error && (
-                <span className='absolute top-full left-0 text-red-500 text-xs'>
+                <span className='error-message'>
                     {error}
                 </span>
             )}
