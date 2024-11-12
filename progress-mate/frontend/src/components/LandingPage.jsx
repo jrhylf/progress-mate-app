@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // CSS
 import '../css/LandingPage.css';
@@ -14,12 +13,6 @@ function LandingPage() {
 
     const handleFormShow = () => {
         setShowLoginForm(!showLoginForm);
-    };
-
-    const navigate = useNavigate();
-
-    const goToDashboard = () => {
-        navigate("/dashboard");
     };
     
     return(
@@ -47,11 +40,10 @@ function LandingPage() {
                     <Button 
                         text={'Get Started'}
                         className={'getStartedBtn'}
-                        // TODO: Show Login Modal Form instead of goToDashboard
                         onClick={handleFormShow}
                         {...showLoginForm ? 'Close Login Form' : 'Open Login Form'}
                     />
-                    {showLoginForm && <LoginForm />}
+                    {showLoginForm && <LoginForm showLoginForm={showLoginForm} setShowLoginForm={setShowLoginForm} />}
                 </div>
             </header>
 
@@ -124,9 +116,10 @@ function LandingPage() {
                 <Button
                     text={"Join Now for Free"}
                     className={"cta-button"}
-                    // TODO: Show Login Modal Form instead of goToDashboard
-                    onClick={goToDashboard}
-                />
+                    onClick={handleFormShow}
+                        {...showLoginForm ? 'Close Login Form' : 'Open Login Form'}
+                    />
+                    {showLoginForm && <LoginForm showLoginForm={showLoginForm} setShowLoginForm={setShowLoginForm} />}
                 </div>
             </section>
 

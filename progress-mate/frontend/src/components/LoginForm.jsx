@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import { Input, Button } from '../components/Components';
+import googleIcon from '../assets/icons/google.png';
 
 // Illustrations
 import { ReactComponent as LoginIllustration } from '../assets/svg/Secure-login.svg';
@@ -9,10 +11,18 @@ import { ReactComponent as LoginIllustration } from '../assets/svg/Secure-login.
 // CSS
 import '../css/loginForm.css';
 
-const LoginForm = () => {
+const LoginForm = ({ showLoginForm, setShowLoginForm }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
+    const navigate = useNavigate();
+
+    const goToDashboard = () => {
+        navigate("/dashboard");
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,15 +35,35 @@ const LoginForm = () => {
         }
     
         // Mock login - Replace with your authentication logic
-        if (username === 'user' && password === 'pass') {
-            console.log('Login successful!');
+        if (username === 'user') {
+            console.log('Username exists');
         } else {
-            setError('Invalid username or password');
+            setUsernameError('Incorrect username');
+        }
+
+        if (password === 'pass') {
+            console.log('Password Exists');
+        } else {
+            setPasswordError('Incorrect password');
+        }
+        
+        if (username === 'user' && password === 'pass') {
+            console.log('Login Successful!');
+            handleClear();
+            goToDashboard();
+        } else {
+            console.log('Login Unsuccessful!');
         }
     };
 
-    const handleCancel = (e) => {
+    const handleClear = () => {
+        setUsername('');
+        setPassword('');
+    };
+
+    const handleGoogleLogin = (e) => {
         e.preventDefault();
+        console.log('Google Login');
     };
 
     return (
@@ -45,16 +75,25 @@ const LoginForm = () => {
                 <form id="login-form" className="login-form">
                     <h1>Login</h1>
                     <Input 
+                        id={'uname-input'}
                         type={'text'}
                         placeholder={'Username'}
+                        value={username}
                         onChange={(e) => { setUsername(e.target.value); }}
-                        // error={"Nice try"}
+                        error={usernameError}
                     />
 
+                    {/* // TODO: Fix this */}
+                    {/* {error && <span className="error-message">{error}</span>}
+                    {usernameError && <span className="error-message">{usernameError}</span>} */}
+
                     <Input 
+                        id={'pword-input'}
                         type={'password'}
                         placeholder={'Password'}
+                        value={password}
                         onChange={(e) => { setPassword(e.target.value); }}
+                        error={passwordError}
                     />
 
                     <Button
@@ -65,8 +104,17 @@ const LoginForm = () => {
 
                     <Button
                         text={'Cancel'}
-                        onClick={handleCancel}
+                        onClick={() => setShowLoginForm(false)}
                         className={'cancel-btn'}
+                    />
+
+                    <p className="gray-text">- or -</p>
+
+                    <Button
+                        icon={<img src={googleIcon} alt="Google Icon" className="google-icon" />}
+                        text={'Google'}
+                        onClick={handleGoogleLogin}
+                        className={'google-btn'}
                     />
                 </form>
             </main>

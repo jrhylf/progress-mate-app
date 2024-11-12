@@ -75,7 +75,7 @@
 
 .login-btn {
     width: 100px;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     margin: 0.5rem;
     color: var(--text-light);
     border: solid 2px var(--primary-accent);
@@ -90,7 +90,7 @@
 
 .cancel-btn {
     width: 100px;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     margin: 0.5rem;
     color: var(--primary-accent);
     border: solid 2px var(--primary-accent);
@@ -101,5 +101,29 @@
 .cancel-btn:hover {
     color: var(--text-light);
     background-color: var(--primary-accent);
+}
+
+.gray-text {
+    color: var(--text-medium);
+    margin: 1rem 0;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    padding: 0.4rem 1rem;
+    border: solid 2px var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.google-btn:hover {
+    background-color: var(--background-light3);
+}
+
+.google-icon {
+    height: 20px;
+    width: 20px;
 }
 
