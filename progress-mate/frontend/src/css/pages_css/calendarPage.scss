@@ -1,3 +1,20 @@
+// Variables
+$background-light: #ffffff;
+$background-light2: #f0f0f0;
+$background-dark: #333333;
+$primary-color: #4CAF50;
+
+$text-dark: #333333;
+$text-light: #fafafa;
+$text-medium: #666666;
+
+$highlight: #FF9800;
+$border-color: #E0E0E0;
+$shadow-color: #b1b1b1;
+
+// ========================= //
+
+
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -5,12 +22,12 @@
 
     .day {
         padding: 10px;
-        background-color: #f0f0f0;
+        background-color: $background-light;
         text-align: center;
     
         &.today {
-            background-color: #4caf50; // Noticeable green color for today’s date
-            color: white;
+            background-color: $primary-color;
+            color: $text-light;
             font-weight: bold;
             border-radius: 4px;
         }

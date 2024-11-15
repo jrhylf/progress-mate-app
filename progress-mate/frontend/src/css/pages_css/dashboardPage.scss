@@ -10,6 +10,7 @@ $text-medium: #666666;
 
 $highlight: #FF9800;
 $border-color: #E0E0E0;
+$shadow-color: #b1b1b1;
 
 // ========================= //
 
@@ -29,7 +30,7 @@ $border-color: #E0E0E0;
             padding: 1rem;
             color: $text-dark;
             background-color: $background-light;
-            box-shadow: 2px 4px 8px $background-light2;
+            box-shadow: 2px 4px 8px $shadow-color;
             flex-grow: 1;
             flex-basis: 40%;
         }
@@ -58,17 +59,12 @@ $border-color: #E0E0E0;
                     color: $highlight;
                     border: solid 1px $highlight;
                     background-color: $background-light;
-                    box-shadow: 4px 4px 0 0 $highlight;
+                    box-shadow: 0 4px 0 0 $highlight;
                     transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
-                }
-                
-                .addTaskBtn:hover {
-                    color: $text-light;
-                    background-color: $highlight;
                 }
 
                 .addTaskBtn:active {
-                    transform: translateX(4px) translateY(4px);
+                    transform: translateY(4px);
                     box-shadow: none;
                 }
             }
@@ -121,17 +117,12 @@ $border-color: #E0E0E0;
                     color: $highlight;
                     border: solid 1px $highlight;
                     background-color: $background-light;
-                    box-shadow: 4px 4px 0 0 $highlight;
+                    box-shadow: 0 4px 0 0 $highlight;
                     transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
-                }
-                
-                .addGoalBtn:hover {
-                    color: $text-light;
-                    background-color: $highlight;
                 }
 
                 .addGoalBtn:active {
-                    transform: translateX(4px) translateY(4px);
+                    transform: translateY(4px);
                     box-shadow: none;
                 }
             }
