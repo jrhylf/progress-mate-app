@@ -19,6 +19,7 @@ $shadow-color: #b1b1b1;
     width: 100%;
 
     .dashboardMain {
+        min-height: max-content;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

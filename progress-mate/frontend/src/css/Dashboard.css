@@ -1,4 +1,5 @@
 .user-header {
+    min-height: 10vh;
     height: auto;
     width: 100%;
     background-color: var(--primary-accent);
@@ -6,6 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.user-header > div {
+    display: flex;
+    align-items: center;
 }
 
 .user-header lord-icon {
@@ -37,7 +43,7 @@
 /* Temporary */
 
 .user-main {
-    height: 100vh;
+    height: auto;
     width: 100%;
 }
 
@@ -121,9 +127,11 @@
 /* Footer */
 .user-footer {
     display: flex;
+    align-items: center;
     justify-content: center;
     height: auto;
     width: 100%;
+    margin-top: 1rem;
     padding: 1rem;
     color: var(--text-dark);
     background-color: var(--background-light2);
@@ -156,9 +164,9 @@
     .nav {
         color: var(--text-light);
         background-color: var(--background-dark);
+        min-height: 90vh;
         max-width: 12%;
         padding: 0;
-        transition: max-width 0.5s ease-out;
     }
 
     div.nav-container.open {

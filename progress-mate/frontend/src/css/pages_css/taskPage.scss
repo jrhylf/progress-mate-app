@@ -10,6 +10,7 @@ $text-medium: #666666;
 
 $highlight: #FF9800;
 $border-color: #E0E0E0;
+$shadow-color: #b1b1b1;
 
 // ========================= //
 
@@ -27,7 +28,7 @@ $border-color: #E0E0E0;
         margin: 1rem auto;
         color: $text-dark;
         background-color: $background-light;
-        box-shadow: 2px 4px 8px $background-light2;
+        box-shadow: 2px 4px 8px $shadow-color;
     }
 
     @mixin flexColumn($flex-direction: column) {
@@ -47,6 +48,7 @@ $border-color: #E0E0E0;
     }
 
     .taskMain {
+        min-height: max-content;
         @include height_width();
         @include card();
         @include flexColumn($flex-direction: row);
@@ -101,6 +103,15 @@ $border-color: #E0E0E0;
                     max-width: fit-content;
                 }
             }
+        }
+    }
+}
+
+// For Mobile Portrait
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .task {
+        .taskMain {
+            flex-direction: column;
         }
     }
 }

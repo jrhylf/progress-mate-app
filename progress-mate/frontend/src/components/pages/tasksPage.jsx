@@ -48,6 +48,10 @@ function TasksPage() {
                     </div>
                 </aside>
             </main>
+
+            <footer className="user-footer">
+                <span className="footer-content">&copy; 2024 ProgressMate</span>
+            </footer>
         </div>
     );
 }

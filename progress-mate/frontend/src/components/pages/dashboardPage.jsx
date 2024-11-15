@@ -108,6 +108,10 @@ function DashboardPage() {
                     <p>Coming soon!</p>
                 </section>
             </main>
+
+            <footer className="user-footer">
+                <span className="footer-content">&copy; 2024 ProgressMate</span>
+            </footer>
         </div>
     )
 }

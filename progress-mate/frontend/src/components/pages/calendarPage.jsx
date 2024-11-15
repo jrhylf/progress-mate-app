@@ -51,6 +51,10 @@ function CalendarPage() {
             <button onClick={() => changeMonth(-1)}>Previous</button>
             <button onClick={() => changeMonth(1)}>Next</button>
             <div className="calendar-grid">{renderDays()}</div>
+
+            <footer className="user-footer">
+                <span className="footer-content">&copy; 2024 ProgressMate</span>
+            </footer>
         </div>
     );
 }
