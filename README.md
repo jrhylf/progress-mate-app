@@ -23,15 +23,15 @@ _A Productivity Dashboard for Managing Tasks, Tracking Goals, and Boosting Produ
 - **Motivational Widget**: Start each day with a motivational quote to keep you inspired.
   
 ## Technologies
-- **Frontend**: React, HTML5, CSS3, SASS
+- **Frontend**: React, HTML5, CSS3, SASS, Tailwind CSS
 - **Backend**: NodeJS
-- **Database**: NoSQL
+- **Database**: MySQL, XAMPP
 - **Version Control**: Git
 
 ## Getting Started
 ### Prerequisites
 - Node.js
-- NoSQL
+- MySQL
 
 ### Installation
 1. Clone the repository:
